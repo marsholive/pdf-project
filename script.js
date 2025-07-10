@@ -1,14 +1,30 @@
-document.getElementById("convertBtn").addEventListener("click", async () => {
-  const fileInput = document.getElementById("upload");
-  if (!fileInput.files.length) return alert("Please upload a file.");
 
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const imgData = e.target.result;
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    doc.addImage(imgData, 'JPEG', 15, 15, 180, 160);
-    doc.save("converted.pdf");
-  };
-  reader.readAsDataURL(fileInput.files[0]);
+const preview = document.getElementById("preview");
+let editedImageURL = null;
+
+
+const { FilerobotImageEditor } = window.FilerobotImageEditor;
+
+const editor = new FilerobotImageEditor({
+  source: '',
+  elementId: 'image-editor-container',
+  onSave: (editedImageObject) => {
+    editedImageURL = editedImageObject.imageBase64;
+    preview.src = editedImageURL;
+    preview.style.display = "block";
+  }
+});
+
+fileInput.addEventListener("change", function (e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      editedImageURL = event.target.result;
+      preview.src = editedImageURL;
+      preview.style.display = "block";
+      editor.open(event.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
 });
