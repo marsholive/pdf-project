@@ -61,7 +61,6 @@ p, h2 {
 #preview-container {
   text-align: center;       /* center contents horizontally */
   margin-bottom: 1em;       /* 1em margin below container */
-  margin-top: 15px;         /* optional top margin */
 }
 
 #preview {
