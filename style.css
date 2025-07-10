@@ -58,14 +58,18 @@ p, h2 {
 }
 
 #preview-container {
-  text-align: center;       /* center contents horizontally */
-  margin-bottom: 1em;       /* 1em margin below container */
+  text-align: center;  
+  margin-bottom: 1em; 
 }
 
 #preview {
   max-width: 150px;
   height: auto;
-  display: none;            /* hide initially */
-  margin: 0 auto;           /* center image itself */
+  display: none;
+  margin: 0 auto;          
 }
 
+.smile {
+  max-width: 150px;
+  height: auto;
+}
