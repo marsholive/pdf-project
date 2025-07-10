@@ -2,6 +2,7 @@ const fileInput = document.getElementById("upload");
 const preview = document.getElementById("preview");
 fileInput.addEventListener("change", () => {
   if (!fileInput.files.length) return;
+
   const reader = new FileReader();
   reader.onload = function (e) {
     preview.src = e.target.result;
@@ -11,6 +12,7 @@ fileInput.addEventListener("change", () => {
 });
 document.getElementById("convertBtn").addEventListener("click", async () => {
   if (!fileInput.files.length) return alert("Please upload a file.");
+
   const reader = new FileReader();
   reader.onload = function (e) {
     const imgData = e.target.result;
@@ -20,5 +22,4 @@ document.getElementById("convertBtn").addEventListener("click", async () => {
     doc.save("converted.pdf");
   };
   reader.readAsDataURL(fileInput.files[0]);
-
 });
