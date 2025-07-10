@@ -27,3 +27,29 @@ document.getElementById("convertBtn").addEventListener("click", async () => {
   };
   reader.readAsDataURL(fileInput.files[0]);
 });
+
+
+const { FilerobotImageEditor } = window.FilerobotImageEditor;
+
+const editor = new FilerobotImageEditor({
+  source: '', // image source will be set dynamically
+  elementId: 'image-editor-container',
+  onSave: (editedImageObject) => {
+    // Do something with the edited image, like convert to PDF
+    const editedImageURL = editedImageObject.imageBase64;
+    // convert editedImageURL to PDF here
+    console.log("Edited image ready:", editedImageURL);
+  },
+});
+
+// Open editor after user uploads
+document.getElementById("upload").addEventListener("change", function (e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      editor.open(event.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+});
