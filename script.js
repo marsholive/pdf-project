@@ -1,16 +1,5 @@
-const fileInput = document.getElementById("upload");
-const preview = document.getElementById("preview");
-fileInput.addEventListener("change", () => {
-  if (!fileInput.files.length) return;
-
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    preview.src = e.target.result;
-    preview.style.display = "block";
-  };
-  reader.readAsDataURL(fileInput.files[0]);
-});
 document.getElementById("convertBtn").addEventListener("click", async () => {
+  const fileInput = document.getElementById("upload");
   if (!fileInput.files.length) return alert("Please upload a file.");
 
   const reader = new FileReader();
