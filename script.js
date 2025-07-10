@@ -1,7 +1,5 @@
 const fileInput = document.getElementById("upload");
 const preview = document.getElementById("preview");
-
-// Show preview when image is selected
 fileInput.addEventListener("change", () => {
   if (!fileInput.files.length) return;
 
@@ -12,8 +10,6 @@ fileInput.addEventListener("change", () => {
   };
   reader.readAsDataURL(fileInput.files[0]);
 });
-
-// PDF generation (unchanged)
 document.getElementById("convertBtn").addEventListener("click", async () => {
   if (!fileInput.files.length) return alert("Please upload a file.");
 
