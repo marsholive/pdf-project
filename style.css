@@ -18,6 +18,9 @@ h1 {
   hyphens: auto;
 }
 
+img {
+  margin-bottom: 0;
+}
 
 button {
   padding: 15px 30px;  
