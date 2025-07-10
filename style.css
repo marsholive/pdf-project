@@ -66,10 +66,7 @@ p, h2 {
 #preview {
   max-width: 150px;
   height: auto;
-  border: 2px solid #ccc;
-  border-radius: 8px;
   display: none;            /* hide initially */
   margin: 0 auto;           /* center image itself */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* optional shadow */
 }
 
