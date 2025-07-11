@@ -25,6 +25,8 @@ button {
   cursor: pointer;    
   background-color: white;
   border: none;
+  border: solid 3px black;
+
 }
 
 input[type="file"] {
@@ -40,6 +42,8 @@ input[type="file"] {
   max-width: 300px;
   box-sizing: border-box;
   text-align: center;
+  border: solid 3px black;
+
 }
 
 button:hover {
